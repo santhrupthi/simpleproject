@@ -1,0 +1,44 @@
+<style>
+    .ng-untouched.ng-invalid {
+    border-color: #ccc; 
+}
+</style>
+
+
+
+
+<div class="container"><br>
+    <div class="row">
+        <form #userForm="ngForm" > 
+            {{userForm.value |json}}
+            <hr/>
+            {{userModel | json}}
+            <div class="form-group">
+                
+                <label>username</label>
+                <input  #name="ngModel" class="control-form"  required type="text"  name="username" [(ngModel)]="username">
+              
+<small [class.d-none]='name.valid || name.untouched'>This field is required</small> 
+            </div>
+            <div class="form-group">
+                <label>Role</label>
+                <input class="control-form" type="text" name="role" [(ngModel)]=userModel.role>
+            </div>
+            <div class="form-group">
+                <label>emsil</label>
+                <input class="control-form" type="text" name="email" [(ngModel)]= userModel.email>
+            </div>
+            <div class="form-group">
+                <label>password</label>
+                <input class="control-form" type="password" name="password" ngModel>
+            </div>
+            <div class="form-group">
+                <label>password</label>
+                <input  type="checkbox" name="forget" [(ngModel)]="userModel.subscribe">
+            </div>
+            <button (click)=loginclick() type='submit'>submit</button>
+          
+        </form>
+    </div>
+</div>
+<router-outlet></router-outlet>
