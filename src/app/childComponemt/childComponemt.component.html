@@ -1,0 +1,12 @@
+<div class="card" *ngIf="canshowimg">
+  <!-- <h3>{{hold_data }}</h3> -->
+  <h4 >{{prentProduct.name | lemitedvalue }}</h4>
+  <p>{{prentProduct.price | emptyNull : "value id deleted"}}</p>
+  <button class="btn btn-defualt" float="right"> </button>
+  <p>{{prentProduct.discription}}</p>
+  <img src="{{prentProduct.imageUrl}}" alt="" width="100%">
+  <button  class="btn btn-info pt-4" > add items</button> 
+  <button class="btn btn-info" style="margin: 10px;"> cancel items</button>
+  <button class='btn btn-danger' (click)='deletetheItems()' >Delete</button>
+</div>
+    

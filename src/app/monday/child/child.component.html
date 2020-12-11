@@ -1,0 +1,18 @@
+<div class="card" >
+  <h3 >{{parentProduct.productName}}</h3> 
+  <div>
+  <p>{{parentProduct.description}}</p>
+  <p>{{parentProduct.price }}</p>  
+  </div>
+  <div>
+    <img  src="{{parentProduct.imageUrl}}" width="100%" alt="image">
+    <button class="btn btn-info">Add</button>
+    <button class="btn btn-primary" (click)='detailsProduct(parentProduct.productId)'>Details</button>
+    <button class="btn btn-danger" (click) = "deleteProduct(parentProduct.productId)">delete</button>
+    <!-- <button class="btn btn-danger"  (click) = "(deleteFromChild)">Delete</button> -->
+    <button class="btn btn-info" *ngIf = "!parentProduct.isActive" (click)="changeStatus(parentProduct.productId , 'activate')">Active</button>
+    <button class="btn btn-danger" *ngIf = 'parentProduct.isActive'(click)="changeStatus(parentProduct.productId , 'dective')">Deactive </button>
+    </div>
+    
+  
+</div>

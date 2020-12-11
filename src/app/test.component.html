@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <h2 #header>getting all content inside ts</h2>
+        <input type="text" class="form-control" style='width:60px' #inputval>
+        <button class="btn btn-danger" (click)='getdata()'>Get Data</button>
+        <input class="form-control" style="width:50%" id="search" name="search" [(ngModel)]="searchText" (input)="filerFunction()">
+        <button class="btn btn_info" (click)="changeName()"> change name</button>
+        <p>{{searchText}}</p>
+        <button class="btn btn-defualt" (click)="showfunction()" float="right">{{showPic ? 'hide pic' : 'show pic'}} </button>
+        <div class="col-md-4" (mousemove)="mouseEnterEvent()" *ngFor="let product of products ">
+           <app-childComponemt [prentProduct] = 'product' [canshowimg]="showPic" (toParentDelete)='fromchildDelete($event)'></app-childComponemt>
+    </div>
+   
+</div>
+<app-morning_session></app-morning_session>
+<div *ngIf="products" class="alert alert-warning" role="alert"> div is not available</div>

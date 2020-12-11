@@ -1,0 +1,83 @@
+
+<div class="container">
+  <div class="row">
+    <form #myform="ngForm" [formGroup]="registerForm"  (ngSubmit)="onUpdate(myform)" >
+      <div class="col-md-1"></div>
+      <div class="col-sm-4">
+      <div class="form-group">
+        <label>First name</label>
+        <input type="text" id="fname" formControlName="fname" [(ngModel)]="collect.fname"   name="fname" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.fname.errors }">
+        
+        <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
+            <div *ngIf="f.fname.errors.required">First Name is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>First name</label>
+        <input type="text"id="lname" formControlName="lname" [(ngModel)]="collect.lname"  name="lname" class="form-control">
+        <div *ngIf="submitted && f.lname.errors" class="invalid-feedback">
+          <div *ngIf="f.lname.errors.required">First Name is required</div>
+      </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" id="email" formControlName="email" [(ngModel)]="collect.email"  name="email" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback- ">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+      </div>
+      </div>
+      <div class="form-group">
+        <label>Date</label>
+        <input type="date" id="date" formControlName="dob" [(ngModel)]="collect.dob" name="date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }">
+      </div>
+      <div class="form-group">
+        <label>phone</label>
+        <input type="text" id ="pnumber" formControlName="phone" [(ngModel)]="collect.phone"  name="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">
+      </div>
+    </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Address</label>
+         <textarea id='address' formControlName="address" name='address' [(ngModel)] = "collect.address" [ngClass]="{ 'is-invalid': submitted && f.address.errors }"></textarea>
+        </div>
+        <div class="form-group">
+          <label>State</label>
+          <input type="text" id=""  name="" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>State</label>
+          <input type="text"id="state"  name="state" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Zip</label>
+          <input type="number" id="zip" onkeyPress="if(this.value.length == 6) return false;" required name="zip" class="form-control">
+        </div>
+        <button type="reset" class="btn btn-warning p-4">Reset</button>
+        <button type="submit" class="btn btn-success">submit</button>
+      </div>
+     
+    </form>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr >
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <!-- <th>Date of birth</th> -->
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let data of rows">
+       <td>{{data.fname}}</td> 
+        <td>{{data.email}}</td>
+        <td>{{data.address}}</td>
+        <td>{{data.phone}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<router-outlet></router-outlet>
+

@@ -1,0 +1,24 @@
+<div class="containr">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-3">
+      <form #myform="ngForm" [formGroup]="registerForm"  (ngSubmit)="loginForm(myform)">
+        <div class="form-group">
+          <label for="uasername">User Name</label>
+          <input type="text" class="form-control" formControlName="email" id="uasername" name = "uasername" >         
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" formControlName="password" class="form-control" id="password" name = "password">         
+        </div>
+        <div class="form-group" hidden>
+          <label for="grant_type"></label>
+          <input type="text" formControlName="grant_type" class="form-control" id="grant_type" [(ngModel)] = "grant_type" name = "grant_type">         
+        </div>
+        <div class="form-group" style="text-align:center">
+          <button class="btn btn-primary">Submit</button>         
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

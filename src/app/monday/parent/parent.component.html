@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <!-- <button class="btn btn-default" (click)='showhideImg()'>{{showimg ? 'hide image' : ' Show image'}}</button> -->
+    <div class="col-md-3"  *ngFor='let product of products'>
+      <app-child [parentProduct] = "product" (deletProduct) = successfullDlt($event) (changeStatussnd) = 'changedStatus($event)' [canshow] = 'showimg' (DelectItems) ="deleting($event)" ></app-child>
+    </div><br>
+    <app-morning_session></app-morning_session>
+  </div>
+</div>
+<router-outlet></router-outlet>
